@@ -46,15 +46,28 @@ run3: INC bx
     mov [220h], dl
     mov dl, 1d
     mov [221h], dl
-    mov bx, 1d
-run2: 
-    inc bx
-    mov ax, [220h+bx-1]
-    mov cx, [220h+bx-2]
-    add ax, cx
-    mov [220h+bx], ax
-    cmp bx, 14d
-    jb run2
+	mov ax, 0d
+	mov dx, 1d
+	mov bx, 2d	
+fib:	
+    MOV cx, dx
+	ADD dx, ax
+	MOV ax, cx
+	CMP dx, 255d		
+	JBE loop1
+	JA loop2
 
+loop1:	
+    mov [220h+bx],dx
+	INC bx
+	cmp bx, 10h	
+	jb fib
+
+loop2:
+    mov [220h+bx],dx
+	INC bx
+    INC bx
+	cmp bx, 10h
+	jb fib			
 
     int 20h
