@@ -8,7 +8,7 @@ section .text
 lupi:	call 	kb
 	cmp 	al, "$"
 	je	do
-    sub     al, 30h
+  	sub     al, 30h
 	mov	[300h+si], al ; CS:0300h en adelante
 	inc 	si
 	jmp 	lupi
