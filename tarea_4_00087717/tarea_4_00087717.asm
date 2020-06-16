@@ -1,7 +1,6 @@
 org 	100h
 
 section .text
-
 	mov 	dx, msg
 	call 	w_strng
 
